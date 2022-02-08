@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pruebas</title>
+</head>
+<body>
+    
+</body>
+
+<H1><b>Lorem ipsum dolor sit amet</b><br></H1> 
+
+<div id="img_main"><img src= "imagen.jpeg"></div>
+
+<p id="p1">consectetuer adipiscing elit. Aenean commodo ligula eget dolor.<br>
+     Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<br>
+      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.<br>
+       Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.<br>
+        In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.<br>
+         Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.<br>
+          Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. <br>
+          Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. <br>
+          Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. 
+
+<div id="container1">
+    <h2>Opiniones</h2>
+    <div id="opiniones"></div>
+    <button id="Comenta">Comenta</button>
+    <button id="Borra">Borra</button>
+</div>
+
+
+<script>
+
+//variables 
+
+//se han declarado fuera para que el programa pueda acceder a ellas
+// indistintamente de en que bloque sean usadas
+var listacomentarios;
+var nuevocomentario;
+
+
+var btncomentar = document.getElementById("Comenta");
+
+var btnborrar = document.getElementById("Borra");
+
+//inicio progrmación-------------------------------------------------------------------
+
+//programando boton de comentar
+
+btncomentar.onclick = function addC(){
+
+    //con la variable listacomentarios buscamos el lugar exacto donde queremos poner los comentarios
+     listacomentarios= document.getElementById("opiniones");
+
+     //con la variable nuevocomentario creamos nuestro elemento nuevo. Es decir nuestro comentario(todavía no tiene
+     //contenido, simplemente le reservamos un espacio)
+     nuevocomentario = document.createElement("p");
+    
+    //utilizamos nuevocomentario.innerHTML para agregar contenido a nuestro eemento nuevo. EN este caso le vamos
+    //a pedir a la persona que ingrese el texto
+    nuevocomentario.innerHTML= prompt("Te invito a expresarte");
+
+    
+    //para situar nuestro elemento donde queremos usamo appenchild()
+    //ponemos la variable que nos dice donde queremos poner nuestro elemento (listacomentarios)
+    //appenchlid
+    //y entre los parentesis el elemento que queremos poner
+    listacomentarios.appendChild(nuevocomentario);
+}
+
+btnborrar.onclick = function borrar(){
+
+    //parecedo al anterior
+    //ponemos la variable que nos dice el sitio donde queremos borrar el elemento
+    //ponemos el metodo (removeChild)
+    //y entre los parentesis la variable del elemento que queremos borrar
+    
+   listacomentarios.removeChild(nuevocomentario);
+
+}
+
+
+</script>
+</html>
